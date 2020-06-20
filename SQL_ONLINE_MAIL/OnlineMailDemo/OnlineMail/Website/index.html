@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Mail</title>
+    <meta charset="UTF-8" lang="en">
+
+</head>
+<body>
+    <div style="position: fixed; left -100px; top: -100px;"><h1>Online Mail</h1></div>
+    <center>
+    <form method="Post" action="/index">
+        {% csrf_token %}
+        Search for Goods: <input type="text" name="name">
+        <input type="submit" value="Search">
+    </form>
+<!--    <form method="Post" action="/register">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="submit" value="Register">-->
+<!--    </form>-->
+<!--    <form method="Post" action="login">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="submit" value="Login">-->
+<!--    </form>-->
+    </center>
+    <center>
+        <h4>{{Result}}</h4>
+    <table border="1px silver">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Information</th>
+            <th>Remaining</th>
+            <th>Add</th>
+            <th>Buy</th>
+        </tr>
+        {% for item in Goods%}
+        <tr>
+            <th>{{item.Goods_Name}}</th>
+            <th>{{item.Goods_Type}}</th>
+            <th>{{item.Goods_Price}}</th>
+            <th>{{item.Goods_Information}}</th>
+            <th>{{item.Goods_Number}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    </center>
+</body>
+<footer>
+    <center>
+        <div>
+            <p style="font-size: 10px">&copy;2020 Nankai University.</p>
+        </div>
+    </center>
+</footer>
+</html>

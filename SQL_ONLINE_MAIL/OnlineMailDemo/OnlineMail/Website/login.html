@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Mail</title>
+    <meta charset="UTF-8" lang="en">
+
+</head>
+<body>
+    <div style="position: fixed; left -100px; top: -100px;"><h1>Online Mail</h1></div>
+    <center>
+        <h2>Login</h2>
+        <h4 style="color: red;">{{wrong}}</h4>
+        <h4>{{register}}</h4>
+    </center>
+    <form method="Post" action="/finish_login">
+        {% csrf_token %}
+        <input type="text" name="Account">
+        <input type="password" name="Password">
+        <input type="Submit" value="Login">
+    </form>
+</body>
+<footer>
+    <center>
+        <div>
+            <p style="font-size: 10px">&copy;2020 Nankai University.</p>
+        </div>
+    </center>
+</footer>
+</html>
