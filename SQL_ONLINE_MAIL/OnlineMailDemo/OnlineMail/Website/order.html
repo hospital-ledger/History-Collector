@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+    {% if login %}
+        {% if empty %}
+            <center>
+                <h3>{{empty}}</h3>
+            </center>
+        {% else %}
+        <center>
+            <h3>Your Order</h3>
+            <table border="1px">
+                <tr>
+                    <td>Order ID</td>
+                    <td>Order Status</td>
+                    <td>Operation</td>
+                </tr>
+                {% for item in order%}
+                    <tr>
+                        <td>
+                            {{item.Customer_Order_ID}}
+                        </td>
+
+                            {% if item.Customer_Order_Status == 'F' %}
+                            <td>Finished</td>
+                            <td>
+                            <form method="Post" action="/order_manage">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{login}}" name="login">
+                                <input type="hidden" value="{{item.Customer_Order_ID}}" name="order">
+                                <input type="submit" value="Back" name="button">
+                                <input type="submit" value="Exchange" name="button">
+                            </form>
+                            </td>
+                            {% endif %}
+                            {% if item.Customer_Order_Status == 'D' %}
+                            <td>Draft</td>
+                            {% endif %}
+                            {% if item.Customer_Order_Status == 'C' %}
+                            <td>Cancel</td>
+                            {% endif %}
+                            {% if item.Customer_Order_Status == 'R' %}
+                            <td>Running</td>
+                            {% endif %}
+                            {% if item.Customer_Order_Status == 'E' %}
+                            <td>Exchange</td>
+                            {% endif %}
+                            {% if item.Customer_Order_Status == 'B' %}
+                            <td>Back</td>
+                            {% endif %}
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </center>
+        {% endif %}
+    {% else %}
+        <center>
+            <h3 style="color: red;">You need to login in order to find your order.</h3>
+        </center>
+    {% endif %}
+</body>
+</html>

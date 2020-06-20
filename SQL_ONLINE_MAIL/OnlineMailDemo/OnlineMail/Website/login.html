@@ -11,13 +11,15 @@
         <h2>Login</h2>
         <h4 style="color: red;">{{wrong}}</h4>
         <h4>{{register}}</h4>
+        <form method="Post" action="/finish_login">
+            {% csrf_token %}
+            Your Accounts: <input type="text" name="Account">
+            <br/>
+            Your Password: <input type="password" name="Password">
+            <br/>
+            <input type="Submit" value="Login">
+        </form>
     </center>
-    <form method="Post" action="/finish_login">
-        {% csrf_token %}
-        <input type="text" name="Account">
-        <input type="password" name="Password">
-        <input type="Submit" value="Login">
-    </form>
 </body>
 <footer>
     <center>

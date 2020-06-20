@@ -1,3 +1,4 @@
+-- Prepare for running.
 
 use mail;
 
@@ -49,4 +50,7 @@ use mail;
 -- insert into customer values(0,"Jackson","Mj","Mj@Outlock.com","Male",md5('Mj'),10000,"2020-06-20 10:51:27");
 
 
--- 7. 
+-- 7. Insert some goods into shopping_cart for customers.
+-- 
+-- insert into shopping_cart values(1,1,'2020-06-20 16:41:24',1);
+-- insert into shopping_cart values(1,3,'2020-06-20 16:59:55',2);
