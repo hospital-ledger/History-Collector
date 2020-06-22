@@ -54,3 +54,11 @@ use mail;
 -- 
 -- insert into shopping_cart values(1,1,'2020-06-20 16:41:24',1);
 -- insert into shopping_cart values(1,3,'2020-06-20 16:59:55',2);
+
+
+-- 8. Insert into customer_order old order.
+-- 
+-- insert into customer_order values(0,1,'F','2020-06-18 01:23:45'); 
+
+
+-- create view order_information as select * from customer_order, order_detial, goods where customer_order.Customer_Order_ID=order_detial.Order_Detial_Customer_Order_ID and goods.Goods_ID=order_detial.Order_Detial_Goods_ID;

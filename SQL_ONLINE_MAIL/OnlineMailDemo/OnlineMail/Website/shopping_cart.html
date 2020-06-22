@@ -20,6 +20,17 @@
                 <input type="submit" value="Go Index" name="Submit">
             </form>
         {% else %}
+            <form method="Post" action="/index">
+                {% csrf_token %}
+                <input type="hidden" value="{{login}}" name="login">
+                <input type="hidden" value="" name="name">
+                <input type="submit" value="Go Index" name="Submit">
+            </form>
+            <form method="Post" action="/settlement">
+                {% csrf_token %}
+                <input type="hidden" value="{{login}}" name="login">
+                <input type="submit" value="Settlement" name="settlement">
+            </form>
             <table border="1px">
                 <tr>
                     <td>Goods_ID</td>
@@ -42,6 +53,7 @@
                         <form method="Post" action="/manageCart">
                             {% csrf_token %}
                             <input type="hidden" value="{{login}}" name="login">
+                            <input type="hidden" value="{{item.Shopping_Cart_Goods_ID}}" name="goods_id">
                             <input type="submit" value="-" name="button">
                             <input type="submit" value="+" name="button">
                             <input type="submit" value="Delete" name="button">

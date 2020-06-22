@@ -14,7 +14,7 @@
         {% if login %}
         <input type="hidden" value="{{login}}" name="login">
         {% endif %}
-        Search for Goods: <input type="text" name="name">
+        Searching for Goods: <input type="text" name="name">
         <input type="submit" value="Search">
     </form>
 <!--    <form method="Post" action="/register">-->
@@ -30,7 +30,7 @@
         {% if login %}
             <form method="POST" action="/user">
                 {% csrf_token %}
-                Account: {{login}}
+                Current Account ID: {{login}}
                 <input type="hidden" value="{{login}}" name="login">
                 <input type="submit" value="Shopping Cart" name="button">
                 <input type="submit" value="My Order" name="button">
@@ -42,6 +42,13 @@
                 <input type="submit" value="Login">
             </form>
         {% endif %}
+        <form method="Post" action="/list">
+            {% csrf_token %}
+            {% if login %}
+            <input type="hidden" value="{{login}}" name="login">
+            {% endif %}
+            <input type="submit" value="View the sales list" name="button">
+        </form>
 <!--        <form method="Post" action="/test">-->
 <!--            {% csrf_token %}-->
 <!--            {% if Result %}-->

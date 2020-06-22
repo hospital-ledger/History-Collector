@@ -27,5 +27,8 @@ urlpatterns = [
     url(r'^add$',OnlineMail.Add),
     url(r'^buy$',OnlineMail.Buy),
     url(r'^order_manage$',OnlineMail.Order_Manage),
+    url(r'^manageCart',OnlineMail.Shopping_Cart_Manage),
+    url(r'^settlement$',OnlineMail.Settlement),
+    url(r'^list$',OnlineMail.Show_List),
     url(r'',OnlineMail.Show_Index),
 ]
